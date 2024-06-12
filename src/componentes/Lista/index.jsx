@@ -1,8 +1,15 @@
 import "./style.css"
 
-function Lista() {
-    return(
-        <p>a</p>
+function Lista({ item }) {
+
+    return (
+        <ul>
+            {item.map((items, index) => {
+                return <li key={items.id}>
+                    <span className="numeroDaLista">{index + 1}</span> {items.text}
+                </li>
+            })}
+        </ul>
     )
 }
 
