@@ -1,0 +1,21 @@
+ul {
+    margin-top: 25px;
+    margin-left: 10px;
+    list-style-type: none;
+}
+li {
+    font-size: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+}
+.numeroDaLista {
+    background: rgb(51, 221, 142);
+    padding: 0px 10px;
+    padding-right: 13px;
+    text-align: center;
+    border-radius: 50px;
+
+}
