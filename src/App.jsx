@@ -13,9 +13,11 @@ function App() {
   }
 
   function addItem() {
-    setItem([...item, temp]);
-    setTemp('');
-    console.log(item);
+    if (temp.trim() !== '') {
+      setItem([...item, { id: Date.now(), text: temp }]);
+      setTemp('');
+      console.log(item);
+    }
   }
 
   return (
@@ -24,9 +26,8 @@ function App() {
         <Pesquisa temp={temp} onChange={temporario} />
         <BotaoAddItem onClique={addItem} />
         <div className='divLista'>
-          <Lista />
+          <Lista item={item} />
         </div>
-
       </div>
     </div>
   );
