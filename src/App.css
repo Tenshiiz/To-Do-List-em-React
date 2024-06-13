@@ -29,3 +29,12 @@
 .divLista {
   width: 100%;
 }
+@media (min-width: 320px) and (max-width: 780px) {
+  .content {
+    padding: 10px;
+  }
+  .App {
+    background-size: cover;
+    background-position: -250px;
+  }
+}
