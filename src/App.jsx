@@ -1,12 +1,21 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BotaoAddItem from './componentes/BotaoAddItem';
 import Pesquisa from './componentes/Pesquisa';
 import Lista from './componentes/Lista';
 
 function App() {
-  const [item, setItem] = useState([]);
+  const [items, setItems] = useState(() => {
+    const storedItems = localStorage.getItem('itens');
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
+
   const [temp, setTemp] = useState('');
+
+
+  useEffect(() => {
+    localStorage.setItem('itens', JSON.stringify(items));
+  }, [items]);
 
   function temporario(event) {
     setTemp(event.target.value);
@@ -14,9 +23,8 @@ function App() {
 
   function addItem() {
     if (temp.trim() !== '') {
-      setItem([...item, { id: Date.now(), text: temp }]);
+      setItems([...items, { id: Date.now(), text: temp }]);
       setTemp('');
-      console.log(item);
     }
   }
 
@@ -26,7 +34,7 @@ function App() {
         <Pesquisa temp={temp} onChange={temporario} />
         <BotaoAddItem onClique={addItem} />
         <div className='divLista'>
-          <Lista item={item} />
+          <Lista item={items} />
         </div>
       </div>
     </div>
