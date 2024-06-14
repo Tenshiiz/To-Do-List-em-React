@@ -3,6 +3,8 @@
     border-radius: 15px;
     height: 6vh;
     border-color: rgb(70, 3, 3);
+    cursor: pointer;
+
 }
 .deletar:hover {
     background: red;
