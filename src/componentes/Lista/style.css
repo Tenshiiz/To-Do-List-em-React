@@ -18,6 +18,13 @@ li {
     text-align: center;
     border-radius: 50px;
     margin-right: 10px;
-
-
+}
+.div1 {
+    display: grid;
+    grid-template-columns: 92% 8%;
+}
+@media (min-width:320px) and (max-width:780px) {
+    .div1 {
+        grid-template-columns: 78% 22%;
+    }
 }

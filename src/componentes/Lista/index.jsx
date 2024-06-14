@@ -1,15 +1,19 @@
+import BotaoDeletar from "../BotaoDeletar";
 import "./style.css"
 
-function Lista({ item }) {
+function Lista({ item, onDelete, value }) {
     return (
         <ul>
             {item.map((items, index) => {
-                return <li key={items.id}>
-                    <span className="numeroDaLista">
-                        {index + 1}
-                    </span> 
-                    {items.text}
-                </li>
+                return <div className="div1" key={items.id}>
+                    <li>
+                        <span className="numeroDaLista">
+                            {index + 1}
+                        </span>
+                        {items.text}
+                    </li>
+                    <BotaoDeletar id={items.id} onDelete={onDelete}/>
+                </div>
             })}
         </ul>
     )

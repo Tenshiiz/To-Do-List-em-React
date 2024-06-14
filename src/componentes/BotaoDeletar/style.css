@@ -1,0 +1,15 @@
+.deletar {
+    margin-left: 10px;
+    border-radius: 15px;
+    height: 6vh;
+    border-color: rgb(70, 3, 3);
+}
+.deletar:hover {
+    background: red;
+    color: white;
+    transform:scale(1.050);
+    transition: 0.3s;
+}
+.deletar:active {
+    transform:scale(1);
+}

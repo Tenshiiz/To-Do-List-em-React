@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import BotaoAddItem from './componentes/BotaoAddItem';
 import Pesquisa from './componentes/Pesquisa';
 import Lista from './componentes/Lista';
+import BotaoDeletar from './componentes/BotaoDeletar';
 
 function App() {
   const [items, setItems] = useState(() => {
@@ -16,6 +17,12 @@ function App() {
   useEffect(() => {
     localStorage.setItem('itens', JSON.stringify(items));
   }, [items]);
+
+  const deletar = (id) => {
+    const newItems = items.filter((objeto) => objeto.id !== id);
+    setItems(newItems)
+    console.log(id);
+  }
 
   function temporario(event) {
     setTemp(event.target.value);
@@ -34,7 +41,7 @@ function App() {
         <Pesquisa temp={temp} onChange={temporario} />
         <BotaoAddItem onClique={addItem} />
         <div className='divLista'>
-          <Lista item={items} />
+          <Lista item={items} onDelete={deletar} />
         </div>
       </div>
     </div>
